@@ -37,7 +37,7 @@
 
 								<table cellspacing="0" class="booklist">
 									<tr>
-									<c:forEach items="${pb.books }" var="b">
+									<c:forEach items="${pb.books}" var="b">
 										<td>
 
 											<div class="divbookpic">

@@ -1,6 +1,5 @@
 package com.anthony.domain;
 import java.util.List;
-import com.anthony.domain.Book;
 
 public class PageBean {
 	private int pageSize;
@@ -8,6 +7,7 @@ public class PageBean {
 	private int count;
 	private int totalPage;
 	private List<Book> books;
+	
 	public int getPageSize() {
 		return pageSize;
 	}
@@ -32,7 +32,7 @@ public class PageBean {
 	public void setTotalPage(int totalPage) {
 		this.totalPage = totalPage;
 	}
-	public List<Book> getBook() {
+	public List<Book> getBooks() {
 		return books;
 	}
 	public void setBooks(List<Book> books) {
