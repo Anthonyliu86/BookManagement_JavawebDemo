@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -37,6 +37,7 @@
 
 								<table cellspacing="0" class="booklist">
 									<tr>
+									<c:forEach items="${pb.books }" var="b">
 										<td>
 
 											<div class="divbookpic">
@@ -47,10 +48,10 @@
 											</div>
 
 											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
+												<a href="#">书名:${b.name}<br />售价:${b.price} </a>
 											</div></td>
 										<td>
-
+									</c:forEach>
 										
 								</table>
 	

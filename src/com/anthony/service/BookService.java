@@ -3,6 +3,7 @@ package com.anthony.service;
 import java.util.List;
 
 import com.anthony.domain.Book;
+import com.anthony.domain.PageBean;
 
 public interface BookService {
 	
@@ -19,4 +20,6 @@ public interface BookService {
 	public void delAllBook(String[] ids);
 
 	public List<Book> searchBooks(String id, String category, String name, String minprice, String maxprice);
+	
+	public PageBean findBooksPage(int currentPage, int pageSize);
 }

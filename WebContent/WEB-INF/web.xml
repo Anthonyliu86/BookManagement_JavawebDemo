@@ -67,12 +67,20 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>searchBooksServlet</display-name>
     <servlet-name>searchBooksServlet</servlet-name>
     <servlet-class>com.anthony.web.servlet.SearchBooksServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>searchBooksServlet</servlet-name>
     <url-pattern>/searchBooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>pageServlet</servlet-name>
+    <servlet-class>com.anthony.web.servlet.PageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pageServlet</servlet-name>
+    <url-pattern>/pageServlet</url-pattern>
   </servlet-mapping>
 </web-app>

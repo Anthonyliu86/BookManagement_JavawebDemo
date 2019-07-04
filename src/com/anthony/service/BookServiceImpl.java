@@ -6,6 +6,7 @@ import java.util.List;
 import com.anthony.dao.BookDao;
 import com.anthony.dao.BookDaoImpl;
 import com.anthony.domain.Book;
+import com.anthony.domain.PageBean;
 
 public class BookServiceImpl implements BookService {
 	
@@ -69,6 +70,26 @@ public class BookServiceImpl implements BookService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+	
+	public PageBean findBooksPage(int currentPage, int pageSize) {
+		try {
+			int count = bd.count();
+			int totalPage = (int)Math.ceil(count*1.0/pageSize);
+			List<Book> books = bd.findBooks(currentPage, pageSize);
+			//封装成一个PageBean对象
+			PageBean pb = new PageBean();
+			pb.setBooks(books);
+			pb.setCount(count);
+			pb.setCurrentPage(currentPage);
+			pb.setTotalPage(totalPage);
+			pb.setPageSize(pageSize);
+			return pb;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

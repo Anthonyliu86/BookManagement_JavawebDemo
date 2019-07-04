@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.anthony.datasource.C3P0Utils;
 import com.anthony.domain.Book;
@@ -79,4 +80,16 @@ public class BookDaoImpl implements BookDao {
 		return qr.query(sql, new BeanListHandler<Book>(Book.class),list.toArray());
 	}
 	
+	
+	public int count() throws SQLException {
+		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+		long l = (Long)qr.query("select count(*) from book", new ScalarHandler(1));
+		return (int)l;
+	}
+
+	public List<Book> findBooks(int currentPage, int pageSize) throws SQLException {
+		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+		return qr.query("select * from book limit ?,?", new BeanListHandler<Book>(Book.class),(currentPage-1)*pageSize, pageSize);
+	}
+
 }
