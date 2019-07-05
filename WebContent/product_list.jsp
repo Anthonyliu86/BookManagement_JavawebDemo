@@ -39,7 +39,6 @@
 									<tr>
 									<c:forEach items="${pb.books}" var="b">
 										<td>
-
 											<div class="divbookpic">
 												<p>
 													<a href="#"><img src="" width="115" height="129"
@@ -49,8 +48,8 @@
 
 											<div class="divlisttitle">
 												<a href="#">书名:${b.name}<br />售价:${b.price} </a>
-											</div></td>
-										<td>
+											</div>
+										</td>
 									</c:forEach>
 										
 								</table>
@@ -60,16 +59,17 @@
 									<ul>
 
 
-										<li class="disablepage">&lt;&lt;上一页</li>
+										<li class="disablepage"><a href="${pageContext.request.contextPath }/pageServlet?currentPage=${pb.currentPage==1? pb.currentPage:pb.currentPage-1}">&lt;&lt;上一页</a></li>
 										
 										
-										<li>第1页/共5页</li>
+										<li>第${pb.currentPage}页/共${pb.totalPage}页</li>
 
-										<li class="nextPage"><a href="#">&lt;&lt;下一页</a></li>
+										<li class="nextPage"><a href="${pageContext.request.contextPath }/pageServlet?currentPage=${pb.currentPage==pb.totalPage? pb.currentPage:pb.currentPage+1}">&lt;&lt;下一页</a></li>
 
 
 									</ul>
-								</div></td>
+								</div>
+							</td>
 						</tr>
 					</table>
 				</td>
