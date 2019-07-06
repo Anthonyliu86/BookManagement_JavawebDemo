@@ -82,4 +82,14 @@
     <servlet-name>pageServlet</servlet-name>
     <url-pattern>/pageServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>findBookInfoServlet</display-name>
+    <servlet-name>findBookInfoServlet</servlet-name>
+    <servlet-class>com.anthony.web.servlet.FindBookInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>findBookInfoServlet</servlet-name>
+    <url-pattern>/findBookInfoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

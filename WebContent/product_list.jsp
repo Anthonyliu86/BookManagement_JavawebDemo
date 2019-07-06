@@ -41,13 +41,13 @@
 										<td>
 											<div class="divbookpic">
 												<p>
-													<a href="#"><img src="" width="115" height="129"
+													<a href="${pageContext.request.contextPath}/findBookInfoServlet?id=${b.id}"><img src="" width="115" height="129"
 														border="0" /> </a>
 												</p>
 											</div>
 
 											<div class="divlisttitle">
-												<a href="#">书名:${b.name}<br />售价:${b.price} </a>
+												<a href="${pageContext.request.contextPath}/findBookInfoServlet?id=${b.id}">书名:${b.name}<br />售价:${b.price} </a>
 											</div>
 										</td>
 									</c:forEach>

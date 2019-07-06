@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -49,15 +49,15 @@
 										</td>
 										<td style="padding:20px 5px 5px 5px"><img
 											src="images/miniicon3.gif" width="16" height="13" /><font
-											class="bookname">&nbsp;&nbsp;java编程思想</font>
+											class="bookname">&nbsp;&nbsp;${book.name}</font>
 
-											<hr />售价：<font color="#FF0000">￥:99元</font>
-											<hr /> 类别：计算机
+											<hr />售价：<font color="#FF0000">￥:${book.price}元</font>
+											<hr /> 类别：${book.category}
 
 											<hr />
 											<p>
 												<b>内容简介：</b>
-											</p>这是一本好书</td>
+											</p>${book.description}</td>
 									</tr>
 								</table>
 							</td>
