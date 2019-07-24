@@ -92,4 +92,14 @@
     <servlet-name>findBookInfoServlet</servlet-name>
     <url-pattern>/findBookInfoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckEmailServlet</display-name>
+    <servlet-name>CheckEmailServlet</servlet-name>
+    <servlet-class>com.anthony.web.servlet.CheckEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckEmailServlet</servlet-name>
+    <url-pattern>/checkEmailServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

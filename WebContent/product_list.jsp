@@ -29,7 +29,7 @@
 							<td>
 								<h1>商品目录</h1>
 								<hr />
-								<h1>计算机</h1>&nbsp;&nbsp;&nbsp;&nbsp;共100种商品
+								<h1>计算机</h1>&nbsp;&nbsp;&nbsp;&nbsp;共${pb.count}种商品
 								<hr />
 								<div style="margin-top:20px; margin-bottom:5px">
 									<img src="images/productlist.gif" width="100%" height="38" />
