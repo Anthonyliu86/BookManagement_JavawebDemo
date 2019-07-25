@@ -57,5 +57,6 @@ public interface BookDao {
 	 * @throws SQLException
 	 */
 	public List<Book> findBooks(int currentPage, int pageSize)throws SQLException;
-
+	
+	public List<Object> searchBookByName(String name) throws SQLException;
 }

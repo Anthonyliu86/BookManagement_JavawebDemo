@@ -4,58 +4,62 @@
 	
 </script>
 <script type="text/javascript">
-<!--
-	function fillNameValue(subDiv) {
-		document.getElementById("name").value = subDiv.innerHTML;
-		
-		document.getElementById("content").style.display="none";
-	}
-
-	function searchName() {
-		var nameElement = document.getElementById("name");
-		//获取输入的信息
-		var nameValue = nameElement.value;
-
-		var div = document.getElementById("content");
-		div.innerHTML = "";
-		//1.获取XMLHttpRequest对象
-		var xmlhttp = getXMLHttpRequest();
-
-		//2.绑定回调函数
-		xmlhttp.onreadystatechange = function() {
-
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
-				var jsonObj = eval("(" + xmlhttp.responseText + ")");
-				
-				if(jsonObj.length>0){
-					document.getElementById("content").style.display="block";
-					for ( var i = 0; i < jsonObj.length; i++) {
-						div.innerHTML += "<div onclick='fillNameValue(this)' onmouseover='changeBackground_over(this)' onmouseout='changeBackground_out(this)'>"
-								+ jsonObj[i] + "</div>"
+	window.onload = function() {
+		// 得到搜索框对象
+		var searchElement = document.getElementById("name");
+		// 得到div框元素
+		var div = document.getElementById("context1");
+		searchElement.onkeyup = function() { // 给文本框注册按键弹起事件
+			// 获取文本的值
+			var name = this.value;
+			if(name == ""){
+				div.style.display="none";
+				return;
+			}
+			// 获取xhr对象
+			var xhr = getXMLHttpRequest();
+			
+			// 处理结果
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){//查看服务器响应状态
+						var str = xhr.responseText; //得到服务器返回值
+						var ss = str.split(",");
+						var childDivs = "";
+						for (var i = 0; i < ss.length; i++) {
+							childDivs += "<div onclick='writeText(this)' onmouseover='changeBackground_over(this)' onmouseout='changeBackground_out(this)'>" + ss[i]+ "</div>";
+						}
+						div.innerHTML = childDivs;
+						div.style.display="block";//把列表隐藏
 					}
 				}
-
 			}
-		};
-		//3.open
-		xmlhttp.open("GET",
-				"${pageContext.request.contextPath}/findProductName?name="
-						+ window.encodeURIComponent(nameValue, "utf-8")
-						+ "&time=" + new Date().getTime());
-		//4.send
-		xmlhttp.send(null);
-	};
-	
-	function changeBackground_over(div){
-		div.style.background="gray";
+			
+			xhr.open("get", "${pageContext.request.contextPath}/searchBookAJAXServlet?name=" + name +"&time=" + new Date().getTime());
+			xhr.send(null);
+		}
+		
 	}
 	
-	function changeBackground_out(div){
-		div.style.background="white";
+	//鼠标悬浮时，改变背景色
+	function changeBackground_over(div) {
+		div.style.backgroundColor = "grey";
 	}
-//-->
+	
+	//鼠标离开时，恢复背景色
+	function changeBackground_out(div) {
+		div.style.backgroundColor = "";
+	}
+	
+	// 把div提示字段填充到搜索框中
+	function writeText(div){
+		// 获取搜索框元素
+		var searchElement = document.getElementById("name");
+		searchElement.value = div.innerHTML;
+		div.parentNode.style.display="none"; //div中点击后隐藏
+	}
 </script>
+
 
 <div id="divmenu">
 	<a
@@ -106,6 +110,7 @@
 
 	</form>
 </div>
-<div id="content"
-	style="background-color:white;width:128px; text-align:left;margin-left:945px;color:black;float:left;margin-top: -20px;display: none">
+<div id="context1" style="display:block; border:1px solid red;background-color:white;width:128px; position:absolute;left:944px;top:135px;">
+	
 </div>
+

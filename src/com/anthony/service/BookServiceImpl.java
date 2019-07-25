@@ -92,5 +92,17 @@ public class BookServiceImpl implements BookService {
 		
 		return null;
 	}
+	
+	/**
+	 * 根据图书名称模糊查询图书，主要是搜索框AJAX查询用
+	 */
+	public List<Object> searchBookByName(String name) {
+		try {
+			return bd.searchBookByName(name);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

@@ -102,4 +102,14 @@
     <servlet-name>CheckEmailServlet</servlet-name>
     <url-pattern>/checkEmailServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchBookAJAXServlet</display-name>
+    <servlet-name>SearchBookAJAXServlet</servlet-name>
+    <servlet-class>com.anthony.web.servlet.SearchBookAJAXServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchBookAJAXServlet</servlet-name>
+    <url-pattern>/searchBookAJAXServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -22,4 +22,6 @@ public interface BookService {
 	public List<Book> searchBooks(String id, String category, String name, String minprice, String maxprice);
 	
 	public PageBean findBooksPage(int currentPage, int pageSize);
+	
+	public List<Object> searchBookByName(String name);
 }
