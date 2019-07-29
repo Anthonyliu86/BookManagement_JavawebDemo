@@ -23,9 +23,9 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status == 200){//查看服务器响应状态
-						var str = xhr.responseText; //得到服务器返回值
-						var ss = str.split(",");
-						var childDivs = "";
+						//var str = xhr.responseText; //得到服务器返回值
+						//var ss = str.split(",");
+						var ss = eval(xhr.responseText);						var childDivs = "";
 						for (var i = 0; i < ss.length; i++) {
 							childDivs += "<div onclick='writeText(this)' onmouseover='changeBackground_over(this)' onmouseout='changeBackground_out(this)'>" + ss[i]+ "</div>";
 						}
