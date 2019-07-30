@@ -112,4 +112,14 @@
     <servlet-name>SearchBookAJAXServlet</servlet-name>
     <url-pattern>/searchBookAJAXServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCartServlet</display-name>
+    <servlet-name>AddCartServlet</servlet-name>
+    <servlet-class>com.anthony.web.servlet.AddCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCartServlet</servlet-name>
+    <url-pattern>/addCartServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

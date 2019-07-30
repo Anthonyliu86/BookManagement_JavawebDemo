@@ -43,7 +43,7 @@
 											</div>
 
 											<div style="text-align:center; margin-top:25px">
-												<a href="#"> <img src="images/buybutton.gif" border="0" />
+												<a href="${pageContext.request.contextPath}/addCartServlet?id=${book.id}"> <img src="images/buybutton.gif" border="0" />
 												</a>
 											</div>
 										</td>
