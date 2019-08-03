@@ -122,4 +122,14 @@
     <servlet-name>AddCartServlet</servlet-name>
     <url-pattern>/addCartServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangeNumServlet</display-name>
+    <servlet-name>ChangeNumServlet</servlet-name>
+    <servlet-class>com.anthony.web.servlet.ChangeNumServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeNumServlet</servlet-name>
+    <url-pattern>/changeNumServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
